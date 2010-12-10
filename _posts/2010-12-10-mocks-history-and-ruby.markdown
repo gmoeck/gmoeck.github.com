@@ -22,7 +22,7 @@ In fact though, the real problem is that David has broken the rule of "only mock
 ##So then what can we learn?
 I think the real thing to take away from this discussion is that we as a community need to do a better job of educating ourselves about why the tools that we use exist, and what they were intended to accomplish. The Ruby community is a great place to work in, and we really are pushing the boundaries on many fronts. However we tend to not care as much about ideas that were thought of and developted in other languages like Java. We tend to only focus on their ruby implementation, instead of understanding the ideas behind the technology. If we are going to be true craftsman, I think we also need to learn our history and theory. 
 
-Also, I think that the true solution to when we see newbies making the sort of errors that newbies make is to point them to the right sources. They don't only need to learn how to do something, but why.
+Also, I think that the true solution to when we see newbies making the sort of errors that newbies make is to point them to the right sources. They need to know the theory behind the tool that they're using. They don't only need to learn how to do something, but why. And history often is an engagins source to get them interested.
 
 ##Further Mocking References
 Martin Fowler, ["Mocks Aren't Stubs"](http://martinfowler.com/articles/mocksArentStubs.html)
