@@ -24,7 +24,7 @@ This tells us that the summary view doesn't have the binding that we want it to 
 
 <script src="https://gist.github.com/773059.js"> </script>
 
-Once I do that, Sproutcore again yields no error, but I know that there is no function count_summary on the tasksController, so I write a failing unit test for that function (app/todos/tests/controllers/tasks.js):
+Once I do that, Sproutcore again yields no error, but I know that there is no function countSummary on the tasksController, so I write a failing unit test for that function (app/todos/tests/controllers/tasks.js):
 
 <script src="https://gist.github.com/773072.js"> </script>
 
@@ -32,7 +32,7 @@ Which gives the following failure:
 
 <script src="https://gist.github.com/773074.js"> </script>
 
-Which is telling me that I haven't implemented count_summary on the controller, so I implement it:
+Which is telling me that I haven't implemented countSummary on the controller, so I implement it:
 
 <script src="https://gist.github.com/773076.js"> </script>
 
@@ -81,7 +81,7 @@ I use the simplest way I can think of to implement that:
 
 <script src="https://gist.github.com/773130.js"> </script>
 
-And all my tests are passing. However, that count_summary function on the controller isn't really as clean as I would like, so I refactor it to be:
+And all my tests are passing. However, that countSummary function on the controller isn't really as clean as I would like, so I refactor it to be:
 
 <script src="https://gist.github.com/773134.js"> </script>
 
