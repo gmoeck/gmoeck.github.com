@@ -22,7 +22,7 @@ This then changes the error to read:
 
 <script src="https://gist.github.com/773171.js"> </script>
 
-This tells me that the button is not doing what it is supposed to be doing (adding a task), so I need to implement that functionality. In order to do that, I need to setup the button to target the tasksController, and an action called addTask, which does not yet exist. I modify main_page.js to be the following:
+This tells me that the button is not doing what it is supposed to be doing (adding a task), so I need to implement that functionality. In order to do that, I need to setup the button to target the tasksController, with an action called addTask, which does not yet exist. I modify main_page.js to be the following:
 
 <script src="https://gist.github.com/773177.js"> </script>
 
