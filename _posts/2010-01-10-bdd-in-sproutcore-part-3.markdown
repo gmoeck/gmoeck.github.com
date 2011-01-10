@@ -8,7 +8,7 @@ The next thing that I would like to be able to do with the todos application is 
 
 <script src="https://gist.github.com/773146.js"> </script>
 
-The only thing new here is the simulating of a mouse click on the button within the runloop inside the test. Within sproutcore, there is no such thing as a native "click" event. Instead, Sproutcore registers a click on a mousedown event, followed by a mouseup. Mike Cohen(FrozenCanuck) has a great blog post explaining the idea, which you can view [here](http://frozencanuck.wordpress.com/2010/04/06/simulating-events-in-sproutcore/). For now, know this is how I simulate a clicking on the button.
+The only thing new here is the simulating of a mouse click on the button within the run loop inside the test. Within sproutcore, there is no such thing as a native "click" event. Instead, Sproutcore registers a click on a mousedown event, followed by a mouseup. Mike Cohen(FrozenCanuck) has a great blog post explaining the idea, which you can view [here](http://frozencanuck.wordpress.com/2010/04/06/simulating-events-in-sproutcore/). For now, know this is how I simulate a clicking on the button.
 
 This generates the following failure:
 
@@ -49,3 +49,4 @@ To get that test to pass, I add implement the function:
 This causes both my unit tests, and my integration tests to pass, leaving me in the green. As such, it's time for me to clean up the view a bit.
 
 <script src="https://gist.github.com/773207.js"> </script>
+

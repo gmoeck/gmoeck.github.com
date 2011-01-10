@@ -36,7 +36,7 @@ This is telling me that the content of the ListView is null. This tells me that 
 
 <script src="https://gist.github.com/772927.js"> </script>
 
-Here however when I run my tests again, Sproutcore does not give me any kind of error, it just fails silently. I'm not sure why this is (if you have more knowledge of the framework, please enlighten me) because Todos.tasksController doesn't actually exist. But in anycase I need to create it (apps/todos/controllers/tasks.js):
+Here however when I run my tests again, Sproutcore does not give me any kind of error, it just fails silently. I'm not sure why this is (if you have more knowledge of the framework, please enlighten me) because Todos.tasksController doesn't actually exist. But in any case I need to create it (apps/todos/controllers/tasks.js):
 
 <script src="https://gist.github.com/772931.js"> </script>
 
@@ -52,7 +52,7 @@ In order to make this pass, within the setup I delegate to the store to find the
 
 <script src="https://gist.github.com/772975.js"> </script>
 
-That makes the unit test that we wrote pass, but the integration test is still failing, so we need to delegate to the controler to set it's content:
+That makes the unit test that we wrote pass, but the integration test is still failing, so we need to delegate to the controller to set it's content:
 
 <script src="https://gist.github.com/772982.js"> </script>
 
@@ -69,10 +69,11 @@ To be honest, I'm not entirely happy with the mocking that I just did, because I
 Also, I really should have written the delegation to the controller first, but since I knew I couldn't validate what it was called with it would have missed testing that the main function delegated to the store to find the tasks, so I broke the true BDD cycle there. But, I guess it works for now.
 
 ##One last thing before moving on
-At this point, once all the tests are passing I like to style the view so that it looks like what I expect. This is purely asthetic though, so I like to do it when all my tests are passing. I change main_page.js to be the following:
+At this point, once all the tests are passing I like to style the view so that it looks like what I expect. This is purely aesthetic though, so I like to do it when all my tests are passing. I change main_page.js to be the following:
 
 <script src="https://gist.github.com/773047.js"> </script>
 
 Generally, since I tend to think of the binding to the description and the value as functionality, I think I would want an integration test which checks both of those values. However for the sake of brevity (this post is already quite long), I'll leave out those tests.
 
 [Step 2- Viewing the count of tasks](/2010/01/10/bdd-in-sproutcore-part-2.html)
+

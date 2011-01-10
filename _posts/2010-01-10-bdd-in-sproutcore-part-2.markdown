@@ -12,7 +12,7 @@ This fails with the following errors:
 
 <script src="https://gist.github.com/773034.js"> </script>
 
-This is telling me that the summmary view does not exist yet, so I create it:
+This is telling me that the summary view does not exist yet, so I create it:
 
 <script src="https://gist.github.com/773050.js"> </script>
 
