@@ -20,7 +20,7 @@ Which then changes the error message to be the following:
 
 <script src="https://gist.github.com/773226.js"> </script>
 
-This tells us that the summary view doesn't have the binding that we want it to have, so I bind it's value to the controller with a function that does not exist yet, but that I wish it had:
+This tells me that the summary view doesn't have the binding that I want it to have, so I bind it's value to the controller with a function that does not exist yet, but that I wish it had:
 
 <script src="https://gist.github.com/773059.js"> </script>
 
