@@ -5,8 +5,6 @@ title: Sproutcore training with Erich Ocean- A Review
 #Sproutcore training with Erich Ocean: A Review
 So today I took took the day off work, and attended Erich Ocean's Sproutcore training session that he's been posting on the Sproutcore mailing [list](http://groups.google.com/group/sproutcore/browse_thread/thread/18fb7b643a745552#). I figured that since Erich is the only source that I have seen for training, and since he also is the one who has put forward the [book proposal](http://www.google.com/url?sa=D&q=http://erichocean.com/book/index.html) that it would be a good oportunity to improve my skill in the Sproutcore world. This article is an account of my experience. Hopefully it will help you decide whether to attend his next class.
 
-If you read nothing else, I would still jump down the the conclusions section, as I pose some interesting questions about the Sproutcore community as a whole.
-
 ##Format
 The class mainly took the form of Erich talking though diagrams or code via screen-sharing, and answering questions inputted into a chat window as we were going along. This was accomplished using GoToMeeting's GoToTraining [software](http://www.gotomeeting.com/fec/training/online_training).
 
