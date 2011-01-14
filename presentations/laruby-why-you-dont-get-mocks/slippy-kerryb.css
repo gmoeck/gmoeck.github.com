@@ -201,3 +201,6 @@ a[rel=src]:before {
 .large-left-margin {
   margin-left: 200px;
 }
+.move-up-title {
+  margin-top: -15px;
+}
