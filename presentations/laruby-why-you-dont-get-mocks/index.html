@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <!-- Slide meta data, remove/edit as you see fit -->
+    <title>Why You Don't Get Mocks</title>
+    <meta name="author" content="Greg Moeck" />
+    <meta name="email" content="gmoeck@gmail.com" />
+    <meta name="date" content="2011-01-13" />
+    <meta name="venue" content="LA Ruby User Group" />
+    <!-- Slippy core file and dependencies -->
+    <script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="jquery.history.js"></script>
+    <script type="text/javascript" src="kerryb.js"></script>
+    <script type="text/javascript" src="analytics.js"></script>
+    <script type="text/javascript" src="slippy-0.9.0.js"></script>
+    <!-- Slippy structural styles -->
+    <link type="text/css" rel="stylesheet" href="slippy-0.9.0.css"/>
+    <!-- Slippy theme -->
+    <link type="text/css" rel="stylesheet" href="slippy-kerryb.css"/>
+    <!-- Syntax highlighting -->
+    <script type="text/javascript" src="highlighter/shCore.js"></script>
+    <script type="text/javascript" src="highlighter/shBrushBash.js"></script>
+    <script type="text/javascript" src="highlighter/shBrushRuby.js"></script>
+    <link type="text/css" rel="stylesheet" href="highlighter/shCore.css"/>
+    <link type="text/css" rel="stylesheet" href="highlighter/shThemeEclipse.css"/>
+    <!-- Slippy init code -->
+    <script type="text/javascript">
+      $(function() {
+          $(".slide").slippy({
+          });
+          SyntaxHighlighter.all();
+          });
+    </script>
+  </head>
+  <body>
+    <div class="slide">
+      <div class="vcenter">
+        <h1>Why you don't get mocks</h1>
+        <h2 class="center">Gregory Moeck<br />LA Ruby Users Group, 2010-01-13</h2>
+        <div class="licence">
+          <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img
+            alt="Creative Commons License"
+            src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><br />
+          <small>Special thanks to Kerry Buckley for the presentation layout</small>
+        </div>
+      </div>
+    </div>
+    <div class="slide">
+      <h1>Viewing presentation</h1>
+      <h3>http://gmoeck.github.com/presentations/laruby-why-you-dont-get-mocks</h3>
+    </div>
+
+    <div class="slide">
+      <h1>Who am I?</h1>
+    </div>
+
+    <div class="slide">
+      <h1>Who am I?</h1>
+      <h2>Gregory Moeck</h2>
+      <div class="comparison">
+        <div class="left large-top-margin">
+          <span class="blue">@gregmoeck</span> on Twitter
+        </div>
+        <div class="middle large-top-margin">
+          <span class="blue">http://gmoeck.github.com</span>
+        </div>
+        <div class="right large-top-margin">
+          <span class="blue large-left-margin">gmoeck</span> on github
+        </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Presentation Format</h1>
+      <div class="vcenter">
+        <ul>
+          <li>Why Mocks?</li>
+          <li>OO Design Principles</li>
+          <li>Mocking Rules</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Why Mocks?</h1>
+    </div>
+
+    <div class="slide">
+      <h1>Why Mocks?</h1>
+      <h2>People have called mock objects the following:</h2>
+      <div class="vcenter">
+        <ul>
+          <li>Wastes of time</li>
+          <li>Scams</li>
+          <li>Testing Heresies</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Why Mocks?</h1>
+      <h2>Objections</h2>
+      <p>1. Testing using Mock Objects tests implementation and duplicates code</p>
+      <pre class="brush: ruby">
+        describe ShowController, "index" do
+
+          describe "when a TV show has no public videos" do
+
+            it "should not show that TV show" do
+              Show.should_receive(:all).
+                with(:select =&gt; "id, name, public_videos_count",
+                     :conditions =&gt; "shows.public_videos_count &gt; 0").
+                and_return([])
+
+              get 'index'
+              response.body.should_not match(/#{@show.name}/)
+            end
+
+          end
+
+        end
+      </pre>
+    </div>
+
+    <div class="slide">
+      <h1>Why Mocks?</h1>
+      <h2>Objections</h2>
+      <p>1. Testing using Mock Objects tests implementation and duplicates code</p>
+      <pre class="brush: ruby">
+        class ShowController
+          def index
+            @shows = Show.all(
+                         :select =&gt; "id, name, public_videos_count",
+                         :conditions =&gt; "shows.public_videos_count &gt; 0")
+          end
+        end
+      </pre>
+    </div>
+
+    <div class="slide">
+      <h1>Why Mocks?</h1>
+      <h2>Objections</h2>
+      <p>2. Mock Objects are brittle and do a bad job testing</p>
+      <pre class="brush: ruby">
+        module Codebreaker
+          describe Game do
+            describe "#start" do
+              it "sends a welcome message" do
+                output = double('output')
+                game = Game.new(output)
+                output.should_receive(:puts).with('Welcome to Codebreaker!')
+                game.start
+              end
+            end
+          end
+        end
+      </pre>
+    </div>
+
+    <div class="slide">
+      <h1>Why Mocks?</h1>
+      <h2>Objections</h2>
+      <p>2. Mock Objects are brittle and do a bad job testing</p>
+      <pre class="brush: ruby">
+        module Codebreaker
+          class Game
+            def initialize(output)
+              @output = output
+            end
+            def start
+              @output.puts("Welcome to Codebreaker!")
+            end
+          end
+        end
+      </pre>
+    </div>
+
+    <div class="slide">
+      <h1>Why Mocks?</h1>
+      <h2>Objections</h2>
+      <p>2. Mock Objects are brittle and do a bad job testing</p>
+      <p><code>Refactor</code> to:</p>
+      <pre class="brush: ruby">
+        module Codebreaker
+          class Game
+            def initialize(output)
+              @output = output
+            end
+            def start
+              @output.write("Welcome to Codebreaker!") #changed to write
+            end
+          end
+        end
+      </pre>
+      <hr />
+      <p>The test fails, even though the output is the SAME!</p>
+    </div>
+
+    <div class="slide">
+      <h1>Why Mocks?</h1>
+      <div class="vcenter">
+        <h2>QED</h2>
+        <p class="center">Mocks are stupid!!!</p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Why Mocks?</h1>
+      <div class="vcenter">
+        <h2>Or maybe you just don't understand mocks?</h2>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Why Mocks?</h1>
+      <div class="vcenter">
+        <p>Mocking is <code>not</code> primarily about testing</p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Why Mocks?</h1>
+      <div class="vcenter">
+        <p>Mocking <code>is</code> primarily about object oriented design.</p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Why mocks?</h1>
+      <div class="vcenter">
+        <p>Mocking is primarily about <code>emergent</code> oo design.</p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Why mocks?</h1>
+      <div class="vcenter">
+        <p>Mocking is primarily about emergent OO design.</p>
+        <p>Guided by <code>Tests</code></p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>OO Design Principles </h1>
+    </div>
+
+    <div class="slide">
+      <h1>OO Design Principles </h1>
+      <h2>Single Responsibility Principle</h2>
+    </div>
+
+    <div class="slide">
+      <h1>OO Design Principles </h1>
+      <h2>Single Responsibility Principle</h2>
+      <div class="vcenter">
+        <p>A class should have only one reason to change.</p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>OO Design Principles </h1>
+      <h2>Single Responsibility Principle</h2>
+      <div class="vcenter">
+        <pre class="brush: ruby">
+          class Modem
+            ...
+            def dial(phone_number) end
+            def hangup end
+            def send(data) end
+            def receive end
+          end
+        </pre>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>OO Design Principles </h1>
+      <h2>Single Responsibility Principle</h2>
+      <div class="vcenter">
+        <pre class="brush: ruby">
+          class Modem
+            ...
+            def dial(phone_number)
+              @connection.dial(phone_number)
+            end
+            def hangup
+              @connection.hangup
+            end
+            def send(data)
+              @data_channel.send(data)
+            end
+            def receive
+              @data_chanel.receive
+            end
+          end
+        </pre>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>OO Design Principles </h1>
+      <h2>Single Responsibility Principle</h2>
+      <div class="vcenter">
+        <pre class="brush: ruby">
+          describe Modem do
+            describe '#dial' do
+              it "delegates to it's connection" do
+                connection = double('connection)
+                modem = Modem.new(:connection =&gt; connection)
+                phone_number = '1234567890'
+                connection.should_receive(:phone_number).with(phone_number)
+                modem.dial(phone_number)
+              end
+            end
+          end
+        </pre>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>OO Design Principles </h1>
+      <h2>Law of Demeter</h2>
+    </div>
+
+    <div class="slide">
+      <h1>OO Design Principles </h1>
+      <h2>Law of Demeter</h2>
+      <div class="vcenter">
+        <p>Only talk to your immediate friends.</p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>OO Design Principles </h1>
+      <h2>Law of Demeter</h2>
+      <div class="vcenter">
+        <p>A class should never chain messages past a single layer</p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>OO Design Principles </h1>
+      <h2>Law of Demeter</h2>
+      <div class="vcenter">
+        <pre class="brush: ruby">
+          class Account
+            ...
+            def childrens_names
+              @owner.children.map{|child| child.name}.join(',')
+            end
+          end
+        </pre>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>OO Design Principles </h1>
+      <h2>Law of Demeter</h2>
+      <div class="vcenter">
+        <pre class="brush: ruby">
+          class Account
+            ...
+            def childrens_names
+              @owner.childrens_names
+            end
+          end
+        </pre>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>OO Design Principles </h1>
+      <h2>Law of Demeter</h2>
+      <div class="vcenter">
+        <pre class="brush: ruby">
+          describe Account do
+            describe '#childrens_names' do
+              it 'delegates to the account owner to get childrens names' do
+                owner = double('owner')
+                account = Account.new(:owner =&gt; owner)
+                owner.should_receive(:childrens_names)
+                account.childrens_names
+              end
+            end
+          end
+        </pre>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Mocking Rules</h1>
+    </div>
+
+    <div class="slide">
+      <h1>Mocking Rules</h1>
+      <h2>1. Only Mock Types You Own</h2>
+    </div>
+
+    <div class="slide">
+      <h1>Mocking Rules</h1>
+      <h2>1. Only Mock Types You Own</h2>
+      <div class="vcenter">
+        <p>Mocking is about discovering your domain</p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Mocking Rules</h1>
+      <h2>1. Only Mock Types You Own</h2>
+      <div class="vcenter">
+        <ol>
+          <li>Create an interface to the external api</li>
+          <li>Specify what your doing in domain terms</li>
+          <li><strong>Stub</strong> the external api within the interface</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Mocking Rules</h1>
+      <h2>2. Tell, Don't Ask</h2>
+    </div>
+
+    <div class="slide">
+      <h1>Mocking Rules</h1>
+      <h2>2. Tell, Don't Ask</h2>
+      <div class="vcenter">
+        <p>Tell collaborators what you need from them</p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Mocking Rules</h1>
+      <h2>2. Tell, Don't Ask</h2>
+      <div class="vcenter">
+        <p>Push decisions about implementation outside your responsibility</p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Mocking Rules</h1>
+      <h2>2. Tell, Don't Ask</h2>
+      <div class="vcenter">
+        <p>Express those decisions in domain terms</p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Mocking Rules</h1>
+      <h2>2. Tell, Don't Ask</h2>
+      <div class="vcenter">
+        <p>When needing to mock within a class, the tests are telling you to extract another class</p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Mocking Rules</h1>
+      <h2>3. Mock Roles, NOT Objects</h2>
+    </div>
+
+    <div class="slide">
+      <h1>Mocking Rules</h1>
+      <h2>3. Mock Roles, NOT Objects</h2>
+      <div class-"vcenter">
+        <p>A mock should not represent an object but a <code>role</code> that the object will play</p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Mocking Rules</h1>
+      <h2>3. Mock Roles, NOT Objects</h2>
+      <div class-"vcenter">
+        <p>You should be able to switch the implementation of the role, so long as the interface doens't change</p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Opening Examples</h1>
+      <h2>Objections</h2>
+      <p>1. Testing using Mock Objects tests implementation and duplicates code</p>
+      <pre class="brush: ruby">
+        describe ShowController, "index" do
+          describe "when a TV show has no public videos" do
+            it "should not show that TV show" do
+              Show.should_receive(:all).
+                with(:select =&gt; "id, name, public_videos_count",
+                     :conditions =&gt; "shows.public_videos_count &gt; 0").
+                and_return([])
+
+              get 'index'
+              response.body.should_not match(/#{@show.name}/)
+            end
+          end
+        end
+      </pre>
+      <hr>
+      <p>What is wrong here?</p>
+    </div>
+
+    <div class="slide">
+      <h1>Opening Examples</h1>
+      <h2>Objections</h2>
+      <p>1. Testing using Mock Objects tests implementation and duplicates code</p>
+      <pre class="brush: ruby">
+        describe ShowController, "index" do
+          it "delegate to the shows collection to find which have public videos" do
+            Show.should_receive(:with_public_videos)
+
+            get 'index'
+          end
+        end
+      </pre>
+      <hr>
+      <p>And implement "with_public_videos" in your model layer</p>
+    </div>
+
+    <div class="slide">
+      <h1>Opening Examples</h1>
+      <h2>Objections</h2>
+      <p>2. Mock Objects are brittle and do a bad job testing</p>
+      <pre class="brush: ruby">
+        module Codebreaker
+          describe Game do
+            describe "#start" do
+              it "sends a welcome message" do
+                output = double('output')
+                game = Game.new(output)
+                output.should_receive(:puts).with('Welcome to Codebreaker!')
+                game.start
+              end
+            end
+          end
+        end
+      </pre>
+      <hr>
+      <p>What is wrong here?</p>
+    </div>
+    <div class="slide">
+      <h1>Opening Examples</h1>
+      <h2>Objections</h2>
+      <p>2. Mock Objects are brittle and do a bad job testing</p>
+      <pre class="brush: ruby">
+        module Codebreaker
+          describe Game do
+            describe "#start" do
+              it "delegates to it's output to send a welcome message" do
+                output_interface = double('output_interface')
+                game = Game.new(output_interface)
+                output_interface.should_receive(:output).with('Welcome to Codebreaker!')
+                game.start
+              end
+            end
+          end
+        end
+      </pre>
+    </div>
+
+    <div class="slide">
+      <h1>Learning more</h1>
+      <h2><a href="http://www.amazon.com/Growing-Object-Oriented-Software-Guided-Tests/dp/0321503627/ref=sr_1_1?ie=UTF8&s=books&qid=1294972887&sr=8-1">Growing Object Oriented Software Guided By Tests</a></h2>
+      <div class="center">
+        <img src="/images/growing-oos.jpg" alt="Growing Object Oriented Software Guided By Tests" />
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Learning more</h1>
+      <h2><a href="http://www.amazon.com/xUnit-Test-Patterns-Refactoring-Code/dp/0131495054/ref=sr_1_1?ie=UTF8&s=books&qid=1294973013&sr=8-1">xUnit Test Patterns: Refactoring Test Code</a></h2>
+      <div class="center">
+        <img src="/images/xunit-tests.jpg" alt="xUnit Test Patterns: Refactoring Test Code" />
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Learning more</h1>
+      <h2>Blogs</h2>
+      <div class="vcenter">
+        <ul>
+          <li><a href="http://martinfowler.com/articles/mocksArentStubs.html">Mocks Aren't Stubs (Martin Fowler)</a></li>
+          <li><a href="http://www.jmock.org/oopsla2004.pdf">Mock Roles, not Objects</a></li>
+          <li><a href="http://www.mockobjects.com/">Mock Objects blog by Steve Freeman</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="vcenter">
+        <h1>Thank you!</h1>
+        <h2>Any questions?</h2>
+        <h3 class="center">@gregmoeck on twitter</h3>
+        <h3 class="center">http://gmoeck.github.com</h3>
+      </div>
+    </div>
+    
+    
+  </body>
+</html>
