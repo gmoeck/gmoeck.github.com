@@ -29,4 +29,4 @@ Another place that the code that I wrote needs to change is the way that I'm get
 [changes](https://github.com/gmoeck/sc-bdd-todos/commit/13bedc8cd87b16c2ae487a8519aa56533c61d73a)
 
 ##Summary
-If nothing else, these changes should demonstrate that I'm no expert in Sproutcore, and I'm certainly open and looking for feedback on where my mistakes are. I hope this series will be helpul as well for those who are attempting to learn like I am. If you spot something that you think can be done better, or that is unclear please feel free to leave a comment or shoot me an e-mail at gmoeck [at] gmail.com.
+If nothing else, these changes should demonstrate that I'm no expert in Sproutcore, and I'm certainly open and looking for feedback on where my mistakes are. I hope this series will be helpul as well for those who are attempting to learn like I am. If you spot something that you think can be done better, or that is unclear please feel free to leave a comment or shoot me an e-mail at gmoeck [at] gmail.com. If we can get a dialog going with those of us using/playing with Sproutcore all of our codebases will improve.
