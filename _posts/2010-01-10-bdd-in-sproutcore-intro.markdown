@@ -19,4 +19,5 @@ Initially I had this all in a single post, but it seemed way too long, so I've b
 * [Step 1: Viewing an existing task](/2010/01/10/bdd-in-sproutcore-part-1.html)
 * [Step 2: Viewing the count of tasks](/2010/01/10/bdd-in-sproutcore-part-2.html)
 * [Step 3: Adding a task](/2010/01/10/bdd-in-sproutcore-part-3.html)
+* [Corrections for steps 1-3](/2010/01/15/bdd-in-sproutcore-corrections-for-1-3.html)
 

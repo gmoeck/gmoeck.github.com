@@ -50,3 +50,4 @@ This causes both my unit tests, and my integration tests to pass, leaving me in 
 
 <script src="https://gist.github.com/773207.js"> </script>
 
+[Corrections for steps 1-3](/2010/01/15/bdd-in-sproutcore-corrections-for-1-3.html)
