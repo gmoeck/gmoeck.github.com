@@ -64,6 +64,6 @@ Couple points of clarification:
 
 * Erich further clarified to me that he would not always move all of his domain logic onto the server, but only in a case of the LAN, when the price of the network is basically zero. 
 
-* Also, when I said "singleton application controller", you can see my naivete in relation to Sproutcore. Erich actually meant a single responder, usually putting the logic SC.Application for small to medium size apps. Although everything seems to be moving to statecharts now.
+* Also, when I said "singleton application controller", you can see my naivete in relation to Sproutcore. Erich actually meant a single responder, usually putting the logic in SC.Application for small to medium size apps. Although everything seems to be moving to statecharts now.
 
-* Most of the things that shocked me was likely relating to the wiki being so outdated. The guides seem to fit into Erich's approach without as much of a problem
+* Most of the things that shocked me was likely relating to the wiki being so outdated (particularly the todos tutorial). The guides seem to fit into Erich's approach without as much of a problem
