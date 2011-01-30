@@ -56,3 +56,12 @@ This was not the only place that what Erich said seemed to stray from the "sugge
 I point these things out not because I disagree with them, but because I'm not sure if I'm qualifed at this point to even have an opinion on these issues. The class certainly challeged me in that regard, but it also left me with a distict feeling that I wasn't getting the "Sproutcore way", but the Erich Ocean's way. Perhaps this is exactly what I need - only time will tell- but for the time being, it left me with more questions than answers - particularly about how people on the core team view Erich, and his approach. 
 
 Having said that, I certainly felt that I got something from the course. The content was engaging and well prepared, and it was fun to work through the material. The training materials on Sproutcore are definatly lacking, and so to have the oportunity to watch, and talk with Erich for 4 hours was a steal of a deal at double what I was charged. I would certainly recomend the course to others, just go into the class knowing your getting an opinionated lesson.
+
+##EDIT - 2011-01-29
+Couple points of clarification:
+
+* There doesn't seem to be as much tension between what Erich was saying in the class and the canonical way of building views. Yehuda clarified this point in a thread on the developers list, which you can read [here](http://groups.google.com/group/sproutcore/browse_thread/thread/eb75b3fbc0c69da3). 
+
+* Erich further clarified to me that he would not always move all of his domain logic onto the server, but only in a case of the LAN, when the price of the network is basically zero. 
+
+* Also, when I said "singleton application controller", you can see my naivete in relation to Sproutcore. Erich actually meant a single responder, usually putting the logic SC.Application for small to medium size apps. Although everything seems to be moving to statecharts now.
