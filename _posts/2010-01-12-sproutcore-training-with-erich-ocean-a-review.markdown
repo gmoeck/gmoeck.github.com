@@ -62,7 +62,7 @@ Couple points of clarification:
 
 * There doesn't seem to be as much tension between what Erich was saying in the class and the canonical way of building views. Yehuda clarified this point in a thread on the developers list, which you can read [here](http://groups.google.com/group/sproutcore/browse_thread/thread/eb75b3fbc0c69da3). 
 
-* Erich further clarified to me that he would not always move all of his domain logic onto the server, but only in a case of the LAN, when the price of the network is basically zero. 
+* Erich further clarified to me that he would not always move all of his domain logic onto the server, but only in a case of working on a LAN, when the price of the network is basically zero. 
 
 * Also, when I said "singleton application controller", you can see my naivete in relation to Sproutcore. Erich actually meant a single responder, usually putting the logic in SC.Application for small to medium size apps. Although everything seems to be moving to statecharts now.
 
