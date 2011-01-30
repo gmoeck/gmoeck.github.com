@@ -42,11 +42,11 @@ The content was broken down into three sections, which covered the follwing mate
 * Q/A
 
 ##Conclusions
-The class was billed as a course that would "permanently change how you think about application construction and coding with a unique, visual explanation of the MVC architecture in SproutCore", and I think for the most part it accomplished it's goals in that regard. Erich clearly was both very knowledgeable about Sproutcore, and very opinionated. He was not merely content to layout the way things are in Sproutcore, but desired to impart to his students how he thought they could improve the structure of their applications. It was this opionated approach that I think was the classes greatest benefit, although it left me with several questions. 
+The class was billed as a course that would "permanently change how you think about application construction and coding with a unique, visual explanation of the MVC architecture in SproutCore", and I think for the most part it accomplished it's goals in that regard. Erich clearly was both very knowledgeable about Sproutcore, and very opinionated. He was not merely content to layout the way things are in Sproutcore, but desired to impart to his students how he thought they could improve the structure of their applications. It was this opionated approach that I think was the class's greatest benefit, although it left me with several questions. 
 
 For instance, Erich said that any view that is going to be drawing content should be a custom view, and that one should never extend those views from anything but SC.View. This viewpoint astounded a large number of people in the class, and several people expressed that they felt that their entire application had been built on faulty ideas. When some said that they liked the idea of moving away from html, Erich suggested that they might find Cappuccino to be a better fit than Sproutcore. This was all the more shocking although it certainly necessitated transforming about how one should think about building their view layer.
 
-This was not the only place that what Erich said seemed to stray from the "suggested way" that I have seen just about everywhere else. The following are a couple more examples:
+This was not the only place that what Erich said seemed to stray from the "suggested way" that I have seen in working through the wiki tutorial. The following are a couple more examples:
 
 * You want to move all of your domain logic onto the server if you can, and only store attributes on the client.
 * Put no custom code in controllers.
