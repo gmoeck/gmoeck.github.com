@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <!-- Slide meta data, remove/edit as you see fit -->
+    <title>Why You Don't Get Mocks</title>
+    <meta name="author" content="Greg Moeck" />
+    <meta name="email" content="gmoeck@gmail.com" />
+    <meta name="date" content="2011-01-13" />
+    <meta name="venue" content="LA Ruby User Group" />
+    <!-- Slippy core file and dependencies -->
+    <script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="jquery.history.js"></script>
+    <script type="text/javascript" src="kerryb.js"></script>
+    <script type="text/javascript" src="analytics.js"></script>
+    <script type="text/javascript" src="slippy-0.9.0.js"></script>
+    <!-- Slippy structural styles -->
+    <link type="text/css" rel="stylesheet" href="slippy-0.9.0.css"/>
+    <!-- Slippy theme -->
+    <link type="text/css" rel="stylesheet" href="slippy-kerryb.css"/>
+    <!-- Syntax highlighting -->
+    <script type="text/javascript" src="highlighter/shCore.js"></script>
+    <script type="text/javascript" src="highlighter/shBrushBash.js"></script>
+    <script type="text/javascript" src="highlighter/shBrushRuby.js"></script>
+    <link type="text/css" rel="stylesheet" href="highlighter/shCore.css"/>
+    <link type="text/css" rel="stylesheet" href="highlighter/shThemeEclipse.css"/>
+    <!-- Slippy init code -->
+    <script type="text/javascript">
+      $(function() {
+          $(".slide").slippy({
+          });
+          SyntaxHighlighter.all();
+          });
+    </script>
+  </head>
+  <body>
+    <div class="slide">
+      <div class="vcenter">
+        <h1>Why can't I test my Javascript?</h1>
+        <h2 class="center">Gregory Moeck<br />LA Ruby Conf Lightning Talk<br /> 2011-02-05</h2>
+        <div class="licence">
+          <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img
+            alt="Creative Commons License"
+            src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><br />
+          <small>Special thanks to Kerry Buckley for the presentation layout</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Quick Poll</h1>
+    </div>
+
+    <div class="slide">
+      <h1>Quick Poll</h1>
+      <h2>How many of you practice TDD in Ruby?</h2>
+    </div>
+
+    <div class="slide">
+      <h1>Quick Poll</h1>
+      <h2>How many of you practice TDD in Javascript?</h2>
+    </div>
+    <div class="slide">
+      <h1>Possible Reasons</h1>
+      <div class="vcenter">
+        <ul>
+          <li>Javascript Sucks!</li>
+          <li>Bad Testing Frameworks</li>
+          <li>Browser isn't conductive to testing</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Why can't I test this?</h1>
+      <pre class="brush: ruby">
+                $query1 = "SELECT * FROM storage_access_vault_items WHERE access_id = {$_GET[pid]}";
+                $result1 = mysql_query($query1);
+                $inner_vault_items = array();
+                while($this_item = mysql_fetch_assoc($result1))
+                    $inner_vault_items[] = $this_item['vault_item_id'];
+                while($vault = mysql_fetch_assoc($result))
+                {?>
+                  //some HTML stuff with <?= $vault['...'] ?> in it
+                }
+                ...
+      </pre>
+    </div>
+
+    <div class="slide">
+      <h1>Why can't I test this?</h1>
+      <p>Because the structure isn't testable</p>
+      <p>NOT because of inherent problems with PHP</p>
+    </div>
+
+    <div class="slide">
+      <h1>Lesson To Learn:</h1>
+      <p>The same is true of Javascript</p>
+    </div>
+    <div class="slide">
+      <h1>Lesson To Learn:</h1>
+      <ul>
+        <li>If you can't test your Javascript, your tests are telling you your structure is a problem.</li>
+        <li>Javascript is not like CSS, it's a programming language.</li>
+        <li>Use it like you would use Ruby when your writing anything substantial.</li>
+      </ul>
+    </div>
+  </body>
+</html>
