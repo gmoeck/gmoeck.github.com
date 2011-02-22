@@ -10,6 +10,14 @@ The following is currently only working on Ruby 1.9.2. The easiest way to set th
 
 * First `gem install bundler` if you don't have it
 * In your project dir make a file called Gemfile
-* Put in `source 'http://rubygems.org'` and `gem 'sproutcore', :git => 'git://github.com/sproutcore/abbot.git'`
+* Put in `source 'http://rubygems.org'` and `gem 'sproutcore', '1.5.0.pre.3'
 * Run `bundle install --binstubs`
+* mkdir frameworks && cd frameworks
+* git clone git://github.com/sproutcore/sproutcore.git
 * Instead of using `sc-server` use `./bin/sc-server`
+
+###Windows
+Windows also needs to add gem 'eventmachine', :git => 'git://github.com/eventmachine/eventmachine' because otherwise it won't compile
+
+##UPDATED 2011-02-22
+
