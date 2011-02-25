@@ -2,7 +2,7 @@
 layout: post
 title: Testing Your Sproutcore Views
 ---
-#Testing Your Sproutcore Views
+#(Unit) Testing Your Sproutcore Views
 About a week ago there was an [issue](https://github.com/sproutcore/sproutcore/issues#issue/191) created on the sproutcore repository asking about how to programmatically trigger events for unit testing purposes. This created an interesting discussion between Michael Cohen ([frozencanuck](http://frozencanuck.wordpress.com/)) and myself about what is the best way to unit test a Sproutcore view. I figured that this would be a good topic for a blog post, both from the testing perspective and from the Sproutcore perspective. So lets first take a closer look at what our discussion was about.
 
 ##The common way of testing views (Mike's approach)
