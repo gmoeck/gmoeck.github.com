@@ -5,7 +5,7 @@ title: Testing Your Sproutcore Views
 #(Unit) Testing Your Sproutcore Views
 About a week ago there was an [issue](https://github.com/sproutcore/sproutcore/issues#issue/191) created on the sproutcore repository asking about how to programmatically trigger events for unit testing purposes. This created an interesting discussion between Michael Cohen ([frozencanuck](http://frozencanuck.wordpress.com/)) and myself about what is the best way to unit test a Sproutcore view. I figured that this would be a good topic for a blog post, both from the testing perspective and from the Sproutcore perspective. So lets first take a closer look at what our discussion was about.
 
-##The common way of testing views (Mike's approach)
+##The common way of testing views
 The approach with Mike articulated seems to be the standard way by which views are tested using sproutcore. Basically what he suggested is that you create and render the view which you want to put under test, and then interact with and assert on html for the view. To understand this better, let's look at an example from Mike's excellent [blog post](http://frozencanuck.wordpress.com/2010/04/06/simulating-events-in-sproutcore/) on simulating events in sproutcore where he is testing a segmented view like the one bellow.
 
 ![Segmented View](/images/segmented_view.png)
