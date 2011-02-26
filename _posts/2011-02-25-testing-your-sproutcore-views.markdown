@@ -55,7 +55,7 @@ The first thing that we do is we do is ask the DOM for the element which we want
 
 The same thing then happens with triggering the mouseup event. And then finally, we assert that the value of the view is 'bar'.
 
-The key thing to notice is that even in this abbreviated sequence how many pieces of sproutcore we're touching? A lot! Instead of isolating our view class to do assertions on it alone, we're using the bigger portion of the stack to "unit" test our view. As such, this isn't really a unit test but an integration/functional test. 
+The key thing to notice is that even in this abbreviated sequence how many pieces of sproutcore are we touching? A lot! Instead of isolating our view class to do assertions on it alone, we're using the bigger portion of the stack to "unit" test our view. As such, this isn't really a unit test but an integration/functional test. 
 
 So then how would i test this?
 
