@@ -57,7 +57,7 @@ In order to make this a bit more concrete, let's look at a specific example as w
 4. The volume coordinating controller validates that the state of the larger application allows increasing the volume at this time, finds that it does, and so it sends the model layer the increase volume message.
 5. The model layer then would change any external system that would need to change to adjust the volume (say a speaker), and change it's representation of that volume (maybe increasing an integer representing the volume by 1).
 6. At the completion of the changes to the state of the model layer, the bindings for the model layer would fire because a change had taken place, letting the mediating controller know to update itself. (Sproutcore automatically takes care of this step, you only have to setup the initial binding)
-7. At the completion of the changes to the state of the mediating controller, the bindings for that controller would fire, letting the view that is bound to the volume setting (currentVolumeView for example) know to update itself. (Sproutcore automatically takes care of this step, you only have to setup the initial bindings) The view then would re-render the appropriate part of itself, ensuring that the display matches the state of the system.
+7. At the completion of the changes to the state of the mediating controller, the bindings for that controller would fire, letting the views that are bound to the volume setting (CurrentVolumeView, and VolumeBar for example) know to update itself. (Sproutcore automatically takes care of this step, you only have to setup the initial bindings) The view then would re-render the appropriate part of itself, ensuring that the display matches the state of the system.
 
 ###Summary
 
