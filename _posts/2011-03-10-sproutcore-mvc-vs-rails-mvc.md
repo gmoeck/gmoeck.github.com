@@ -39,7 +39,7 @@ The Sproutcore MVC framework is close to Martin Fowler's [Passive View](http://m
 
 ###Steps
 1. When the browser raises a user event like a mouse down, the root responder starts up a runloop.
-2. The root responder gets the view that was the target of the event sends that event to the view, eventually the API for that view is called for the corresponding event.
+2. The root responder gets the view that was the target of the event sends that event to the view, eventually the API for that event on the view view is called.
 3. That view then processes the event and calls the appropriate action in the controller layer
 4. The controller layer processes the action, and calls into the model layer do whatever domain action was specified, changing it's state
 5. The state changes that took place in the model layer are bubbled up into the controller layer through bindings between the model and it's controllers
