@@ -118,10 +118,7 @@ class TrainTicketWebsite
   end
 
   def buy_tickets(number_of_seats)
-    available_seats = @train.seats.reject { |seat| seat.reserved? }
-    raise "InsuffecientSeats" if available_seats.length < number_of_seats
-    seats_to_reserve = available_seats.slice(0, number_of_seats)
-    seats_to_reserve.each { |seat| seat.reserved = true }
+    @train.buy_tickets(number_of_seats)
   end
 end
 
