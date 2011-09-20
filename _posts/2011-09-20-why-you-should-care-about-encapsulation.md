@@ -134,7 +134,7 @@ class Train
 
   private
   def available_seats
-    @seats.reject { |seat|.reserved? }
+    @seats.reject { |seat| seat.reserved? }
   end
 end
 {% endhighlight %}
