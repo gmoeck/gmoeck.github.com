@@ -43,7 +43,7 @@ class TrainTicketStation
 
   def buy_ticket
     available_seats = @train.seats.reject { |seat| seat.reserved? }
-    raise "TrainIsFull" if available_seats.length < amount
+    raise "TrainIsFull" if available_seats.length < 1
     available_seats.first.reserved = true
   end
 end
