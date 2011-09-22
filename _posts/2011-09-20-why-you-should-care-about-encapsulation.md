@@ -28,10 +28,10 @@ encapsulation with information hiding, but I think there is a subtle difference
 between the two. For the purpose of this blog post, when I say
 encapsulation, I mean "the behavior of an object can only be affected
 through its API". Or to put it negatively, an object is not well
-encapsulated when it's behavior can be affected without calling it's
+encapsulated when its behavior can be affected without calling its
 API. Or another way to think about it is that a well encapsulated object draws
 a solid boundry or wall around itself, and ensures that all the code that
-changes it's behavior is contained within the object itself.
+changes its behavior is contained within the object itself.
 
 Consider the following example:
 
@@ -157,16 +157,16 @@ end
 ##How can we maintain encapsulation?
 One of the primary ways that one can move towards well encapsulated code
 is to follow the "Tell, Don't Ask Principle", which is what we did in
-the code above. Instead of asking an object for it's properties and then
+the code above. Instead of asking an object for its properties and then
 making decisions based on that information, objects communicate with
 each other by telling other objects to do something. We make it such
 that the only properties that can affect the behavior of the object are
 contained within the object itself. Any time something needs to happen
 that operates on the data "outside our wall", we tell the object that is
 responsible for that data to do it for us. For example in the above example, 
-instead of asking the train for it's seats, and then making decisions
+instead of asking the train for its seats, and then making decisions
 based on what we get back, we merely tell the train to reserve the
-proper number of seats, and let it operate on it's own data.
+proper number of seats, and let it operate on its own data.
 
 There are of course more design techniques that you can use to help
 maintain encapsulation. A couple of them are avoiding global variables
@@ -174,5 +174,5 @@ or singletons, copying collections or mutable value objects(entities), and
 defining imutable value types. But those are topics for another post.
 
 For now at least I hope you've come to understand encapuslation a bit
-better, and why it's a helpful thing to have. I welcome feedback in the
+better, and why its a helpful thing to have. I welcome feedback in the
 comments.
