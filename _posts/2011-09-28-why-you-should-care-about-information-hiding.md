@@ -6,13 +6,13 @@ title: Why you should care about information hiding
 As I mentioned in my [last](http://gmoeck.github.com/2011/09/20/why-you-should-care-about-encapsulation.html) 
 post, in preparation for my upcoming RubyConf talk  I'm writing a series of
 blog posts about the design priciples that drive the use of mock objects. In
-that post, I covered what encapsulation is, and why you should care about it. 
+that post I covered what encapsulation is, and why you should care about it. 
 Today I want to take up a closely related, yet slightly different topic: Information Hiding.
 
 ##What is information hiding?
 Before talking about why you should care about information hiding, lets
 talk a bit about what information hiding is, and what it is not. When I 
-talk about information hiding, I mean that an object hides how it implements its
+say that an object hides its information well, I mean that an object hides how it implements its
 behavior from the outside world. That is, its API only exposes *what* a given
 object does, not *how* it does it. I've found that people are generally
 confused as to the benefits of information hiding because the general
@@ -38,8 +38,8 @@ value be computed somehow for instance), but this isn't really
 accomplishing information hiding as I described above. It's really
 providing an API to modify the data which the object is "encapsulating".
 The object isn't really exposing behavior as much as it is holding
-data. And as such, in order to use the object, you still have to keep in
-mind the low level details of how the object works. Any code that
+data and as such, in order to use the object, you still have to keep in
+mind the low level details of how it works. Any code that
 does not hide it's information behind a solid API is inherantly a [leaky
 abstraction](http://www.joelonsoftware.com/articles/LeakyAbstractions.html).
 
