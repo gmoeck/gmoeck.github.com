@@ -40,7 +40,7 @@ providing an API to modify the data which the object is "encapsulating".
 The object isn't really exposing behavior as much as it is holding
 data and as such, in order to use the object, you still have to keep in
 mind the low level details of how it works. Any code that
-does not hide it's information behind a solid API is inherantly a [leaky
+does not hide its information behind a solid API is inherantly a [leaky
 abstraction](http://www.joelonsoftware.com/articles/LeakyAbstractions.html).
 
 
@@ -86,12 +86,12 @@ end
 
 The key thing to notice is that the API exposes behavior instead of
 data, or implementation. In order to use the object, you need only to
-know it's API, and give it a ticket reserver on creation. Notice also,
+know its API, and give it a ticket reserver on creation. Notice also,
 that the "ticket reserver" is merely a role that another object is going
 to play. From the perspective of the ticket machine, all it cares about
 is that it implements an api to reserve tickets. It could do that by
 communicating over HTTP, writing to a database, or whatever. Since the
-ticket reserver seems to have hidden it's information as well, the
+ticket reserver seems to have hidden its information as well, the
 object is just a role, and any object which implements the role's API
 can just step in.
 
