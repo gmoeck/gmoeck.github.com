@@ -91,10 +91,10 @@ end
 {% endhighlight %}
 
 Essentially what he's done is treated the ActiveRecord part of the
-shopping cart as a collaborator, and created a stub method for it's
+shopping cart as a collaborator, and created a stub method for its
 products. This way we don't have to add products into the database
 and then read them out just in order to be able to test that the cart
-can properly calculate it's total price. And as you might have already
+can properly calculate its total price. And as you might have already
 guessed, the primary benefit that comes from stubs is speed.
 
 ##Why Stubs Are Not Enough
@@ -121,7 +121,7 @@ to listen to your tests in such a way that pain causes you to change
 your *_design_* rather than your *tests*.
 
 So what is wrong with the design of a system that requires stubs in
-order to test it's objects in isolation? That problem is almost always
+order to test its objects in isolation? That problem is almost always
 that the system has poor encapsulation. Why? When you need to stub an
 object, it means that your going to be querying some dependency for
 information in order to test the behavior of the object. This means that
