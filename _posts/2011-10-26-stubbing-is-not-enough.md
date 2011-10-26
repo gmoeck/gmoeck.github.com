@@ -208,7 +208,7 @@ end
 The assertion here is found in the code "ticket_reserver.should_receive(:reserve).with(55)".
 Instead of asserting on the state of the object, I assert on its
 behavior. This then allows my test to respect the encapsulation of my
-object, isolate it from its dependencies (which means it runs fast),
+object, and isolate it from its dependencies (which means it runs fast),
 while not making my tests brittle.
 
 The only key becomes mocking roles, instead of objects so that we can
