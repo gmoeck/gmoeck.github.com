@@ -95,7 +95,7 @@ shopping cart as a collaborator, and created a stub method for its
 products. This way we don't have to add products into the database
 and then read them out just in order to be able to test that the cart
 can properly calculate its total price. And as you might have already
-guessed, the primary benefit that comes from stubs is speed.
+guessed, the benefit that comes from the stubs is speed.
 
 ##Why Stubs Are Not Enough
 The primary problem that people generally point out in relation to this
