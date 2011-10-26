@@ -18,7 +18,7 @@ can still press listening to their tests further. For example, although
 "mock objects" have become almost a buzz word recently within the community, the
 actual objects that are being created by and large are stubs, not mocks. This means
 that although we're isolating our tests so that they run faster, we're
-not completely dealing with the underlieing coupling that is pulling in
+not completely dealing with the underlying coupling that is pulling in
 all these dependencies, and making our tests slow.
 
 This post is my attempt to lay out how I think we can both improve the
