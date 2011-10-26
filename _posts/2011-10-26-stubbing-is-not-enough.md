@@ -193,8 +193,7 @@ would look something like the following:
 
 {% highlight ruby %}
 describe TicketMachineInterface do
-  it "reserves the number of tickets inputted when the user submits a
-request" do
+  it "reserves the number of tickets inputted when the user submits a request" do
     ticket_reserver = double('ticket_reserver')
     ticket_reserver.should_receive(:reserve).with(55)
 
