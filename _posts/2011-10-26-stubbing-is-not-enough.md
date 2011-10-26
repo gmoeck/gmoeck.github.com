@@ -6,7 +6,7 @@ title: Stubbing Is Not Enough
 There has been a good amount of buzz within the Rails community lately
 about "Isolation Testing", "Mock Objects", and "Fast Tests". I think
 that this is a wonderful trend. Particularly becuase of Corey Haines'
-emphasis that practicing Test-**driven** development means that you need
+emphasis that practicing Test-**Driven** development means that you need
 to listen to your tests in such a way that pain causes you to change
 your *design* rather than your *tests*. It has been a long time coming
 that Rails developers would begin to listen to the pain coming from
@@ -99,7 +99,7 @@ guessed, the benefit that comes from the stubs is speed.
 
 ##Why Stubs Are Not Enough
 The primary problem that people generally point out in relation to this
-form of stubbing, is that it leaves you with "brittle tests"
+form of stubbing however is that it leaves you with "brittle tests"
 which will give you either false positives, or false negatives. So for
 example (and I know this is a bit contrived, but the total price method
 is fairly simple) imagine that I changed price to be a money object that
@@ -116,7 +116,7 @@ One might initially think that this whole "fast tests" thing isn't worth
 it if it means that our tests are going to become brittle. However the
 right response is to go back to how Corey starts his presentation, by
 noticing the difference between Test-**Driven** Development, and
-Test-**First** Development. Practicing Test-**driven** development means that you need
+Test-**First** Development. Practicing Test-**Driven** development means that you need
 to listen to your tests in such a way that pain causes you to change
 your *_design_* rather than your *tests*.
 
