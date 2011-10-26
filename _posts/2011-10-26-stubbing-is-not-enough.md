@@ -46,7 +46,7 @@ You would use a stub when a method depends on another object for data in the
 form of a query. Instead of having to setup a real collaborating object
 (which might include hitting the database, etc), you replace that object
 with another object that only returns the data that you need, so that
-you can avoid having to do the setup. By doing this, isolate
+you can avoid having to do the setup. By doing this, you isolate
 the object under test, because the only dependency that the test needs
 to run is the code for the object itself.
 
