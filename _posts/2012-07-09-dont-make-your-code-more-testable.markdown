@@ -1,3 +1,7 @@
+---
+layout: post
+title: Don't Make Your Code "More Testable"
+---
 #Don't make your code "More Testable"
 In some ways I'm very excited that the Ruby community seems to have
 taken up the "Mocking/OO flag" so to speak lately. Most of the Ruby
