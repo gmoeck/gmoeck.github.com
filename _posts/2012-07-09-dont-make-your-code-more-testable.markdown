@@ -138,9 +138,9 @@ wrong. The goal of "fast tests" has become an end upon itself, and
 people are at risk of destroying their abstractions for the sake of
 "testability".
 
-When we encounter a bit of code that is hard to test, assuming we're
+When we encounter a bit of code that is hard to test-assuming we're
 letting our tests guide the design of the production code we're going to
-write, we're going to have one of two responses. We're either going to
+write-we're going to have one of two responses. We're either going to
 say, "how can I write this in a testable way", or "what about the design
 of the system is this test complaining about".
 
