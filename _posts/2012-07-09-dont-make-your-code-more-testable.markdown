@@ -43,19 +43,19 @@ understand the flow though the system he needs to read 5 different files rather
 than just one controller file. Unsure of why all this was necessary, he goes to
 talk to "Excited OO Engineer".
 
-Experienced Rails Engineer: "Hey, I have a couple of questions about some of 
+**Experienced Rails Engineer**: "Hey, I have a couple of questions about some of 
 the code on the new project, you got a sec?"
 
-Excited OO Engineer: "Sure, whats up?"
+**Excited OO Engineer**: "Sure, whats up?"
 
-Experienced Rails Engineer: "Well, as I was reading through the code, it seemed
+**Experienced Rails Engineer**: "Well, as I was reading through the code, it seemed
 like there was a lot of additional abstractions that didn't seem necessary to
 me, and I'd like to understand why we need it."
 
-Excited OO Engineer: "I'm not sure what you mean. Where do you feel like we've
+**Excited OO Engineer**: "I'm not sure what you mean. Where do you feel like we've
 over abstracted?"
 
-Experienced Rails Engineer: "Like for example, lets take a look at this
+**Experienced Rails Engineer**: "Like for example, lets take a look at this
 PostCommentClass:"
 
 {% highlight ruby %}
@@ -94,29 +94,29 @@ class PostComment
 end
 {% endhighlight %}
 
-Experienced Rails Engineer: "I could see the necessity of a PostComment object 
+**Experienced Rails Engineer**: "I could see the necessity of a PostComment object 
 if we were going to need to share or reuse the code, but for now it
 seems like this could just be put into a controller directly. Why do we need
 the notion of a PostComment?"
 
-Excited OO Engineer: "Oh, well you see we need that to be able to test the
+**Excited OO Engineer**: "Oh, well you see we need that to be able to test the
 code in isolation from other objects. Doing it this way makes it much easier,
 and faster to test."
 
-Experienced Rails Engineer: "Ok, well I can kind of see the benefit of that,
+**Experienced Rails Engineer**: "Ok, well I can kind of see the benefit of that,
 but some of this seems really confusing to me. Like why does the PostComment
 take a user, an entry and attributes into its constructor?"
 
-Excited OO Engineer: "That's because we want to be able to replace the user,
+**Excited OO Engineer**: "That's because we want to be able to replace the user,
 entry and attributes in our tests with fake objects, so that we can
 control the flow through the system here."
 
-Experienced Rails Engineer: "And the same would be true of the language
+**Experienced Rails Engineer**: "And the same would be true of the language
 detector taking a comment? It doesn't make sense to me that something
 connected to detecting language would need to know the structure of a
 comment."
 
-Excited OO Engineer: "Well you see we want to assert that the comment is
+**Excited OO Engineer**: "Well you see we want to assert that the comment is
 told to set itself to have the proper language, and so that actually is
 the responsibility of the language detector. And since we don't want to
 have to use a real comment within our tests, we need to pass it into the
