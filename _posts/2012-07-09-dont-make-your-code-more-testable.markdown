@@ -58,7 +58,7 @@ over abstracted?"
 Experienced Rails Engineer: "Like for example, lets take a look at this
 PostCommentClass:"
 
-```ruby
+{% highlight ruby %}
 class PostComment
   def initialize(user, entry, attributes)
     @user = user
@@ -92,7 +92,7 @@ class PostComment
     PostToFacebook.new(@user, @comment).action(:comment)
   end
 end
-```
+{% endhighlight %}
 
 Experienced Rails Engineer: "I could see the necessity of a PostComment object 
 if we were going to need to share or reuse the code, but for now it
