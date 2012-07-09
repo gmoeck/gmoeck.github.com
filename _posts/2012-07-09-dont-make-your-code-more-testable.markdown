@@ -50,7 +50,7 @@ the code on the new project, you got a sec?"
 
 **Experienced Rails Engineer**: "Well, as I was reading through the code, it seemed
 like there was a lot of additional abstractions that didn't seem necessary to
-me, and I'd like to understand why we need it."
+me, and I'd like to understand why we need them."
 
 **Excited OO Engineer**: "I'm not sure what you mean. Where do you feel like we've
 over abstracted?"
@@ -121,7 +121,9 @@ told to set itself to have the proper language, and so that actually is
 the responsibility of the language detector. And since we don't want to
 have to use a real comment within our tests, we need to pass it into the
 constructor."
+
 ...
+
 
 The conversation goes on for 15 or 20 minutes. Every time the
 "Experienced Rails Engineer" asks a question about what he feels is a
